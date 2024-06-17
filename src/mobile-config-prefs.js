@@ -51,10 +51,7 @@ pref('apz.drag.touch.enabled', false);
 pref('apz.gtk.pangesture.enabled', false);
 pref('apz.one_touch_pinch.enabled', true);
 pref('apz.windows.check_for_pan_gesture_conversion', false);
-pref('apz.wr.activate_all_scroll_frames', true);
 pref('apz.zoom-to-focused-input.enabled', false);
-// Reduces input latency in appMenu
-pref('apz.paint_skipping.enabled', false);
 
 // Responsiveness tweaks; prioritize user interaction
 pref('content.sink.interactive_parse_time', 500);
@@ -71,59 +68,59 @@ pref('dom.animations.offscreen-throttling', false);
 pref('gfx.blithelper.precision', 0);
 
 // More misc rendering performance tweaks
-pref('gfx.canvas.accelerated.aa-stroke.enabled', false);
+pref('gfx.canvas.accelerated.aa-stroke.enabled', true);
 pref('gfx.canvas.accelerated.force-enabled', true);
-pref('gfx.canvas.accelerated.max-surface-size', 4096);
+pref('gfx.canvas.accelerated.max-surface-size', 2048);
 pref('gfx.canvas.accelerated.stroke-to-fill-path', true);
-pref('gfx.content.skia-font-cache-size', 32);
-pref('gfx.direct2d.destroy-dt-on-paintthread', false);
+pref('gfx.content.skia-font-cache-size', 16);
 
-// Disable vblank - causes crashes and slows down rendering. Since we're on Wayland, we don't need it.
-pref('gfx.vsync.force-disable-waitforvblank', true);
-
-// WebRender tweaks. Of note is that we disable threading, OMTC, etc. Browser is a LOT faster without it.
+// WebRender tweaks
 pref('gfx.webrender.all', true);
 pref('gfx.webrender.blob-tile-size', 128);
 pref('gfx.webrender.compositor', true);
 pref('gfx.webrender.compositor.force-enabled', true);
 pref('gfx.webrender.fallback.software', false);
 pref('gfx.webrender.force-disabled', false);
+pref("gfx.webrender.enabled", true);
+pref("gfx.webrender.force-partial-present", true);
+pref("gfx.webrender.multithreading", true);
+pref("gfx.webrender.prefer-robustness", false);
 pref('gfx.webrender.low-quality-pinch-zoom', true);
-pref('gfx.webrender.max-shared-surface-size', 4096);
+pref('gfx.webrender.max-shared-surface-size', 2048);
 pref('gfx.webrender.precache-shaders', true);
 pref('gfx.webrender.allow-partial-present-buffer-age', false);
+pref("gfx.webrender.program-binary-disk", true);
+pref("gfx.webrender.scissored-cache-clears.enabled", true);
+pref("gfx.webrender.scissored-cache-clears.force-enabled", true);
 pref('gfx.will-change.ignore-opacity', false);
 
-// I know this doesn't make sense at all, but disabled + force-enabled somehow improves performance and stability.
-// Without force-enabled, it's laggy. Without disabled, it's crashy. I dunno.
-pref('layers.acceleration.disabled', true);
+pref('layers.acceleration.disabled', false);
 pref('layers.acceleration.force-enabled', true);
-pref('gfx.webrender.multithreading', false);
-pref('layers.offmainthreadcomposition.force-disabled', true);
-pref('dom.animations.mainthread-synchronization-with-geometric-animations', false);
-pref('webgl.cgl.multithreaded', false);
-pref('browser.tabs.remote.force-paint', false);
+pref('gfx.webrender.multithreading', true);
+pref('dom.animations.mainthread-synchronization-with-geometric-animations', true);
+pref('webgl.cgl.multithreaded', true);
+pref("webgl.out-of-process.async-present", true);
+pref("webgl.out-of-process.async-present.force-sync", true);
+pref("layers.gpu-process.enabled", true);
+pref("layers.offmainthreadcomposition.force-disabled", false);
+pref("layout.framevisibility.numscrollportheights", 2);
+pref("layout.scrollbars.always-layerize-track", true);
+
+pref("gfx.canvas.accelerated.async-present", false);
+pref("gfx.content.always-paint", true);
+pref("gfx.display.max-frame-rate", 120);
+
+
 
 // JS performance finetuning. TODO: are these really improving performance?
 // Some of these are kinda security related, so might be good to reduce.
-pref('javascript.options.gc_delay', 10000);
-pref('javascript.options.gc_delay.interslice', 1000);
-pref('javascript.options.mem.gc_incremental_slice_ms', 15);
-pref('javascript.options.mem.gc_parallel_marking', true);
-pref('javascript.options.mem.gc_parallel_marking_threshold_mb', 2);
-pref('javascript.options.spectre.disable_for_isolated_content', true);
-pref('javascript.options.spectre.index_masking', false);
-pref('javascript.options.spectre.jit_to_cxx_calls', false);
-pref('javascript.options.spectre.object_mitigations', false);
-pref('javascript.options.spectre.string_mitigations', false);
-pref('javascript.options.spectre.value_masking', false);
 
-// Prerender up to 3x our viewport size while transforming. Improves appmenu further.
+// Prerender up to 2x our viewport size while transforming. Improves appmenu further.
 pref('layout.animation.prerender.partial', true);
-pref('layout.animation.prerender.viewport-ratio-limit', '3');
+pref('layout.animation.prerender.viewport-ratio-limit', '2');
 
 // Reuse stacking contexts
-pref('layout.display-list.retain.sc', true);
+pref('layout.display-list.retain.sc', false);
 
 pref('layout.lower_priority_refresh_driver_during_load', false);
 
