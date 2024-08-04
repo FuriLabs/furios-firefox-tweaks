@@ -10,4 +10,6 @@ if [ "$1" = "configure" ]; then
     su -l furios -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
 fi
 
+[ -f "/etc/profile.d/99-firefox-disable-glxtest.sh" ] && rm /etc/profile.d/99-firefox-disable-glxtest.sh || true
+
 #DEBHELPER#
