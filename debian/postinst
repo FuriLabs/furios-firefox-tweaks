@@ -2,14 +2,20 @@
 
 set -e
 
+# this should not run during builds
+[ -f "/.dockerenv" ] && exit 0
+
 if [ "$1" = "configure" ]; then
     # This ensures the "last modified" date is updated, as it's needed
     # for those files to upgrade
     find /usr/share/furios-firefox-tweaks -type f -exec touch {} \;
 
-    su -l furios -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
+    getent passwd $1 > /dev/null 2&>1
+    [ $? -eq 0 ] && su -l furios -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
 fi
 
-[ -f "/etc/profile.d/99-firefox-disable-glxtest.sh" ] && rm /etc/profile.d/99-firefox-disable-glxtest.sh || true
+[ -f "/etc/profile.d/99-firefox-disable-glxtest.sh" ] && rm -f /etc/profile.d/99-firefox-disable-glxtest.sh
+
+exit 0
 
 #DEBHELPER#
