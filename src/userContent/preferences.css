@@ -210,7 +210,8 @@
             }
 
             & > vbox:not(.indent), & > vbox.indent > checkbox, & > checkbox, & > hbox, & > tree,
-            & #web-appearance-chooser, & #web-appearance-chooser + div
+            & #web-appearance-chooser, & #web-appearance-chooser + div,
+            #showTrendingSuggestionsBox
             {
                 background-color: var(--gnome-menu-background);
                 padding-inline: unset !important;
@@ -258,6 +259,17 @@
                     border-bottom-right-radius: 12px !important;
                     border-bottom: none !important;
                     clip-path: rect(0 -16px 150% 150%);
+                }
+            }
+
+            #showTrendingSuggestionsBox
+            {
+                padding-top: 6px !important;
+                padding-bottom: 6px !important;
+                
+                & > a
+                {
+                    display: none !important;
                 }
             }
 
