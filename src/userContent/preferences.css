@@ -308,6 +308,35 @@
             }
         }
 
+        #passwordsGroup
+        {
+            & #savePasswords
+            {
+                margin-top: 0 !important;
+            }
+
+            & hbox.indent
+            {
+                margin-inline-start: 0 !important;
+            }
+
+            & #passwordSettings > hbox:nth-child(2)
+            {
+                flex-direction: column;
+                
+                & > vbox:nth-child(2)
+                {
+                    flex-direction: row;
+                    gap: 16px;
+                    
+                    & > button
+                    {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+
         #saveTo
         {
             margin: 0 !important;
