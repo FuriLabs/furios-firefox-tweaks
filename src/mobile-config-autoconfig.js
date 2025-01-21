@@ -355,7 +355,7 @@ function css_files_update() {
 function set_default_prefs() {
     log("Setting default preferences");
 
-    var user_agent = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.3";
+    var user_agent = "Mozilla/5.0 (Android 15; Mobile; rv:134.0) Gecko/134.0 Firefox/134.0";
     defaultPref('general.useragent.override', user_agent);
 
     // Disable "Firefox View" feature by default. It's a pinned tab that allows
