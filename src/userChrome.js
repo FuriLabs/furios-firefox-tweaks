@@ -81,3 +81,43 @@ if (document)
        }
    });
 }
+
+// Hook HTTP requests and spoof user-agents
+// Kind of like the webcompat stuff, but works on privileged pages
+// Used to fix things like Sync login, extension store, YouTube fullscreen, Google login, etc
+{
+    const FIREFOX_DESKTOP_UA = "Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0";
+    const CHROME_ANDROID_UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.6834.79 Mobile Safari/537.36";
+    const UA_SPOOF = {
+        // Fix Google login not trusting the browser
+        "https?://accounts.google.com": FIREFOX_DESKTOP_UA,
+        // Fix Google Search showing up as the old layout
+        "https?://(www.)?google.*/": CHROME_ANDROID_UA,
+        // Fix Sync login not completing
+        "https?://accounts.firefox.com": FIREFOX_DESKTOP_UA,
+        // Fix YouTube fullscreen acting weird
+        "https?://youtube.com": CHROME_ANDROID_UA,
+        "https?://m.youtube.com": CHROME_ANDROID_UA,
+        // Fix Firefox extension store thinking we're on Android
+        "https?://addons.mozilla.org": FIREFOX_DESKTOP_UA,
+    };
+
+    const requestObserver = {
+        observe: function(subject, topic, data) {
+            if (topic == "http-on-modify-request") {
+                const httpChannel = subject.QueryInterface(Ci.nsIHttpChannel);
+                const uri = httpChannel.URI.spec;
+
+                for (const [pattern, ua] of Object.entries(UA_SPOOF)) {
+                    if (new RegExp(pattern).test(uri)) {
+                        httpChannel.setRequestHeader("User-Agent", ua, false);
+                        break;
+                    }
+                }
+            }
+        }
+    };
+
+    const observerService = Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+    observerService.addObserver(requestObserver, "http-on-modify-request", false);
+}
