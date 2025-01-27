@@ -335,6 +335,90 @@
                     }
                 }
             }
+
+            #passwordSettings + vbox
+            {
+                display: none;
+            }
+        }
+
+        hbox:has(> a)
+        {
+            flex-direction: column;
+            align-self: start;
+            width: 100% !important;
+
+            & > checkbox
+            {
+                width: 100% !important;
+            }
+
+            & > a
+            {
+                align-self: start;
+                margin: 0 !important;
+            }
+        }
+
+        .content-blocking-extra-blocking-desc
+        {
+            margin-inline-start: 0 !important;
+        }
+
+        .custom-option
+        {
+            flex-direction: column;
+        }
+
+        .extra-information-label
+        {
+            margin-left: 24px;
+        }
+
+        #globalPrivacyControlCheckbox
+        {
+            margin-top: -4px !important;
+        }
+
+        #passwordsGroup
+        {
+            clip-path: unset !important;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        #nonTechnicalPrivacyBox,
+        #siteDataGroup > hbox
+        {
+            clip-path: unset;
+        }
+
+        #changeMasterPassword
+        {
+            align-self: start;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        #masterPasswordRow + description
+        {
+            display: none;
+        }
+
+        #siteDataGroup > hbox
+        {
+            flex-direction: column;
+
+            & #keepRow
+            {
+                margin-top: 0.5em !important;
+            }
+
+            & > vbox:nth-child(2)
+            {
+                flex-direction: row;
+                gap: 12px;
+            }
         }
 
         #saveTo
