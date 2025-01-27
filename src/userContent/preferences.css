@@ -210,7 +210,8 @@
             }
 
             & > vbox:not(.indent), & > vbox.indent > checkbox, & > checkbox, & > hbox, & > tree,
-            & #web-appearance-chooser, & #web-appearance-chooser + div
+            & #web-appearance-chooser, & #web-appearance-chooser + div,
+            #showTrendingSuggestionsBox
             {
                 background-color: var(--gnome-menu-background);
                 padding-inline: unset !important;
@@ -261,6 +262,17 @@
                 }
             }
 
+            #showTrendingSuggestionsBox
+            {
+                padding-top: 6px !important;
+                padding-bottom: 6px !important;
+                
+                & > a
+                {
+                    display: none !important;
+                }
+            }
+
             & #zoomBox,
             & #saveWhere
             {
@@ -293,6 +305,119 @@
                 margin: 0 !important;
                 display: flex !important;
                 justify-content: center;
+            }
+        }
+
+        #passwordsGroup
+        {
+            & #savePasswords
+            {
+                margin-top: 0 !important;
+            }
+
+            & hbox.indent
+            {
+                margin-inline-start: 0 !important;
+            }
+
+            & #passwordSettings > hbox:nth-child(2)
+            {
+                flex-direction: column;
+                
+                & > vbox:nth-child(2)
+                {
+                    flex-direction: row;
+                    gap: 16px;
+                    
+                    & > button
+                    {
+                        flex: 1;
+                    }
+                }
+            }
+
+            #passwordSettings + vbox
+            {
+                display: none;
+            }
+        }
+
+        hbox:has(> a)
+        {
+            flex-direction: column;
+            align-self: start;
+            width: 100% !important;
+
+            & > checkbox
+            {
+                width: 100% !important;
+            }
+
+            & > a
+            {
+                align-self: start;
+                margin: 0 !important;
+            }
+        }
+
+        .content-blocking-extra-blocking-desc
+        {
+            margin-inline-start: 0 !important;
+        }
+
+        .custom-option
+        {
+            flex-direction: column;
+        }
+
+        .extra-information-label
+        {
+            margin-left: 24px;
+        }
+
+        #globalPrivacyControlCheckbox
+        {
+            margin-top: -4px !important;
+        }
+
+        #passwordsGroup
+        {
+            clip-path: unset !important;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        #nonTechnicalPrivacyBox,
+        #siteDataGroup > hbox
+        {
+            clip-path: unset;
+        }
+
+        #changeMasterPassword
+        {
+            align-self: start;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        #masterPasswordRow + description
+        {
+            display: none;
+        }
+
+        #siteDataGroup > hbox
+        {
+            flex-direction: column;
+
+            & #keepRow
+            {
+                margin-top: 0.5em !important;
+            }
+
+            & > vbox:nth-child(2)
+            {
+                flex-direction: row;
+                gap: 12px;
             }
         }
 
