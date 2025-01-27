@@ -100,6 +100,7 @@ if (document)
         "https?://m.youtube.com": CHROME_ANDROID_UA,
         // Fix Firefox extension store thinking we're on Android
         "https?://addons.mozilla.org": FIREFOX_DESKTOP_UA,
+        "https?://drive.google.com": CHROME_ANDROID_UA,
     };
 
     const requestObserver = {
