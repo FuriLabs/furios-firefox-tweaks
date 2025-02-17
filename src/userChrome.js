@@ -24,13 +24,13 @@
 
 if (document)
 {
-    // When the user touches the browser, get stuff out of the way
     document.addEventListener('DOMContentLoaded', () => {
         const browser = document.getElementById('browser');
         if (!browser) {
             return;
         }
-
+        
+        // When the user touches the browser, get stuff out of the way
         browser.addEventListener('touchstart', () => {
             gURLBar.blur();
         }, { passive: true });
@@ -40,6 +40,14 @@ if (document)
             titleBar.addEventListener('touchstart', () => {
                 gURLBar.blur();
             }, { passive: true });
+        }
+
+        // Disable the popover attribute on the URL bar and ensure it's
+        // position: relative so it doesn't freak out
+        const urlbar = document.getElementById('urlbar');
+        if (urlbar) {
+            urlbar.removeAttribute('popover');
+            urlbar.style.position = 'relative';
         }
     });
 }
