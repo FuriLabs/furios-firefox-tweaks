@@ -10,6 +10,10 @@
             padding-top: 50px !important;
         }
 
+        .personalizeButtonWrapper {
+            z-index: 10000 !important;
+        }
+
         .customize-menu {
             width: 100% !important;
         }
@@ -36,6 +40,7 @@
         ul.top-sites-list {
             width: unset !important;
             text-align: center !important;
+            justify-content: center;
         }
 
         div.ds-top-sites {
