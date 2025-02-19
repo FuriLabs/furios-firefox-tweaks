@@ -237,7 +237,6 @@
                 &:first-child, h2 + &, label + &, description + &,
                 #ctrlTabRecentlyUsedOrder + &,
                 #useAutoScroll + &,
-                &#web-appearance-chooser,
                 &#languagesBox
                 {
 					border-top-left-radius: 12px !important;
@@ -248,6 +247,13 @@
                     {
                         margin-top: -18px !important;
                     }
+                }
+
+                &#web-appearance-chooser
+                {
+					border-top-left-radius: 12px !important;
+                    border-top-right-radius: 12px !important;
+                    margin-top: 16px !important;
                 }
 
                 &:last-child, &#enginesSuggestion, &#browserSeparateDefaultEngine
@@ -336,6 +342,12 @@
             {
                 display: none;
             }
+
+            & > vbox:last-of-type
+            {
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
         }
 
         hbox:has(> a)
@@ -383,6 +395,44 @@
             border-bottom-right-radius: 12px;
         }
 
+        #formAutofillGroupBox
+        {
+            & button.accessory-button
+            {
+                flex: 1;
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+
+            & description
+            {
+                margin-inline-start: 0 !important;
+                text-align: center;
+            }
+        }
+
+        #creditCardAutofill
+        {
+            flex-direction: column;
+        }
+
+        #permissionsGroup hbox:has(> a)
+        {
+            flex-direction: row;
+            position: relative;
+
+            & > a
+            {
+                position: absolute;
+                top: 100%;
+            }
+        }
+
+        #dataCollectionGroup, #websiteAdvertisingGroup
+        {
+            display: none;
+        }
+
         #nonTechnicalPrivacyBox,
         #siteDataGroup > hbox
         {
@@ -393,7 +443,7 @@
         {
             align-self: start;
             width: 100%;
-            margin-top: 16px;
+            margin-top: 16px !important;
         }
 
         #masterPasswordRow + description
