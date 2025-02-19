@@ -99,7 +99,7 @@ pref('gfx.will-change.ignore-opacity', true);
 pref('gfx.webrender.batched-texture-uploads', true);
 pref('gfx.webrender.enable-subpixel-aa', false);
 pref('gfx.webrender.late-scenebuild-threshold', 2);
-pref('gfx.webrender.svg-filter-effects.also-convert-css-filters', true);
+pref('gfx.webrender.svg-filter-effects.also-convert-css-filters', false);
 pref('gfx.webrender.wait-gpu-finished.disabled', true);
 pref('dom.animations.mainthread-synchronization-with-geometric-animations', false);
 pref('layers.gpu-process.enabled', true);
