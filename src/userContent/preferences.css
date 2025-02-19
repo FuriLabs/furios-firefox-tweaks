@@ -220,7 +220,6 @@
                 margin: 0 !important;
                 transition: background-color 0.1s ease-out;
                 box-shadow: 0 0 0 1px rgba(0, 0, 0, .03), 0 1px 3px 1px rgba(0, 0, 0, .07), 0 2px 6px 2px rgba(0, 0, 0, .03);
-                clip-path: rect(0 -16px 100% 150%);
 
                 position: relative;
 
@@ -244,12 +243,10 @@
 					border-top-left-radius: 12px !important;
                     border-top-right-radius: 12px !important;
                     margin-top: 16px !important;
-                    clip-path: rect(-16px -16px 100% 150%);
 
                     & + div
                     {
                         margin-top: -18px !important;
-                        clip-path: rect(0 -16px 150% 150%);
                     }
                 }
 
@@ -258,7 +255,6 @@
 					border-bottom-left-radius: 12px !important;
                     border-bottom-right-radius: 12px !important;
                     border-bottom: none !important;
-                    clip-path: rect(0 -16px 150% 150%);
                 }
             }
 
