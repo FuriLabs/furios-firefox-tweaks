@@ -109,6 +109,9 @@ if (document)
         // Fix Firefox extension store thinking we're on Android
         "https?://addons.mozilla.org": FIREFOX_DESKTOP_UA,
         "https?://drive.google.com": CHROME_ANDROID_UA,
+        // Fix Google Maps search bar not being interactive
+        "https?://(www.)?google.com/maps": FIREFOX_DESKTOP_UA,
+        "https?://maps.google.com": FIREFOX_DESKTOP_UA,
     };
 
     const requestObserver = {
