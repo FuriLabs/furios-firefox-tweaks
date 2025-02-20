@@ -46,6 +46,10 @@ if (document)
         // position: relative so it doesn't freak out
         const urlbar = document.getElementById('urlbar');
         if (urlbar) {
+            // UrlbarInput.sys.mjs wants to call showPopover() on the URL bar,
+            // but that fails with an exception if we remove the attribute.
+            // So... here's some magic for ya:
+            urlbar.showPopover = function() {}; // :^)
             urlbar.removeAttribute('popover');
             urlbar.style.position = 'relative';
         }

@@ -108,3 +108,8 @@
 button[id^='urlbar-engine-one-off-item-Amazon'] {
     display: none !important;
 }
+
+/* Ensure the URL bar's suggestions are always visible */
+#navigator-toolbox {
+    z-index: 9999 !important;
+}
