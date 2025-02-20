@@ -7,7 +7,7 @@ fi
 
 # Check if Firefox ESR has been used
 if [ -d "$HOME/.mozilla/firefox" ] && ls "$HOME/.mozilla/firefox/"*.default-esr >/dev/null 2>&1; then
-	echo "User has opened Firefox ESR before. Migrating to Firefox (non-ESR)."
+    echo "User has opened Firefox ESR before. Migrating to Firefox (non-ESR)."
 
     # Kill running Firefox ESR instances
     killall firefox-esr
@@ -19,17 +19,17 @@ if [ -d "$HOME/.mozilla/firefox" ] && ls "$HOME/.mozilla/firefox/"*.default-esr 
     DEFAULT_ESR_PROFILE=$(ls -d "$HOME/.mozilla/firefox/"*.default-esr)
     DEFAULT_RELEASE_PROFILE=$(ls -d "$HOME/.mozilla/firefox/"*.default-release)
 
-	# Bail if we can't find the profiles
-	if [ -z "$DEFAULT_ESR_PROFILE" ] || [ -z "$DEFAULT_RELEASE_PROFILE" ]; then
-		echo "Could not find ESR or release profile. Exiting."
-		exit 1
-	fi
+    # Bail if we can't find the profiles
+    if [ -z "$DEFAULT_ESR_PROFILE" ] || [ -z "$DEFAULT_RELEASE_PROFILE" ]; then
+        echo "Could not find ESR or release profile. Exiting."
+        exit 1
+    fi
 
     cp -va "$DEFAULT_ESR_PROFILE"/* "$DEFAULT_RELEASE_PROFILE"/
 
-	# Hardcoding this isn't ideal, but can't be arsed figuring out how to calculate cityhash
+    # Hardcoding this isn't ideal, but can't be arsed figuring out how to calculate cityhash
     CITYHASH=4F96D1932A9F858E
-	NEW_PROFILE_BASENAME=$(basename "$DEFAULT_RELEASE_PROFILE")
+    NEW_PROFILE_BASENAME=$(basename "$DEFAULT_RELEASE_PROFILE")
 
     echo "[${CITYHASH}]" >> "$HOME/.mozilla/firefox/installs.ini"
     echo "Default=$NEW_PROFILE_BASENAME" >> "$HOME/.mozilla/firefox/installs.ini"
@@ -38,7 +38,7 @@ if [ -d "$HOME/.mozilla/firefox" ] && ls "$HOME/.mozilla/firefox/"*.default-esr 
     echo "Default=$NEW_PROFILE_BASENAME" >> "$HOME/.mozilla/firefox/profiles.ini"
     echo "Locked=1" >> "$HOME/.mozilla/firefox/profiles.ini"
 
-	echo "Migration complete. Profile path: $DEFAULT_RELEASE_PROFILE"
+    echo "Migration complete. Profile path: $DEFAULT_RELEASE_PROFILE"
 fi
 
 # Hide ESR from app drawer
@@ -59,6 +59,6 @@ XDG_RUNTIME_DIR=/run/user/32011 dconf write /sm/puri/phosh/favorites "$NEW_DOCKE
 # Update default web browser if necessary
 DEFAULT_BROWSER=$(xdg-settings get default-web-browser)
 if [ "$DEFAULT_BROWSER" = "firefox-esr.desktop" ]; then
-	echo "User's default browser was Firefox ESR. Updating to Firefox (non-ESR)."
+    echo "User's default browser was Firefox ESR. Updating to Firefox (non-ESR)."
     xdg-settings set default-web-browser firefox.desktop
 fi
