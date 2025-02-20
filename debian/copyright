@@ -4,36 +4,36 @@ Source: https://github.com/FuriLabs/furios-firefox-tweaks
 
 Files: *
 Copyright: 2020-2022, Oliver Smith <ollieparanoid@postmarketos.org>
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: debian/*
 Copyright: 2020-2022, Arnaud Ferraris <aferraris@debian.org>
-           2024, Bardia Moshiri <fakeshell@bardia.tech>
+           2025, Bardia Moshiri <fakeshell@bardia.tech>
 License: MPL-2.0
 
 Files: src/common/header.css
        src/mobile-config-autoconfig.js
 Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
            2021-2022, Arnaud Ferraris <aferraris@debian.org>
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/mobile-config-prefs.js
 Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
            2021-2022, Martijn Braam <martijn@brixit.nl>
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/userChrome/browser.css
 Copyright: 2021-2022, plata
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/userChrome/tabmenu.css
 Copyright: 2021-2022, Oliver Smith <ollieparanoid@postmarketos.org>
            2021-2022, Peter Mack
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/userContent/addons.css
@@ -45,22 +45,23 @@ Files: src/userContent/addons.css
        src/userContent/protections.css
        src/userContent/rights.css
 Copyright: 2021-2022, Anri Dellal
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/userContent/reader.css
 Copyright: 2021-2022, Tim Magee
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
 Files: src/userContent/sidebar.css
 Copyright: 2021-2022, plata
            2021-2022, Anri Dellal
-           2024, Jesús Higueras <jesus@dabbleam.com>
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: MPL-2.0
 
-Files: org.postmarketos.mobile_config_firefox.metainfo.xml
+Files: io.furios.furios_firefox_tweaks.metainfo.xml
 Copyright: 2022, plata
+           2025, Jesús Higueras <jesus@dabbleam.com>
 License: CC0-1.0
 
 License: CC0-1.0
@@ -81,4 +82,3 @@ License: MPL-2.0
  .
  On Debian systems, the complete text of the Mozilla Public License Version
  2.0 can be found in /usr/share/common-licenses/MPL-2.0.
-
