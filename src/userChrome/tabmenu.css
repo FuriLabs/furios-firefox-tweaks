@@ -8,8 +8,8 @@
      * gives the tab bar a consistent width in both the regular and the private
      * browsing mode, so the increased width hack below looks good in both. */
 
-    hbox.private-browsing-indicator {
-        display: none !important;
+    hbox.private-browsing-indicator-with-label {
+        display: none;
     }
 
     /* Hide firefox-view tab, as none of the options in about:config hides it on FF 123 */
