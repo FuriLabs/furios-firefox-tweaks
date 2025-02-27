@@ -87,7 +87,8 @@ if (document)
 // Used to fix things like Sync login, extension store, YouTube fullscreen, Google login, etc
 {
     const FIREFOX_DESKTOP_UA = "Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0";
-    const CHROME_ANDROID_UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.6834.79 Mobile Safari/537.36";
+    const CHROME_ANDROID_UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.137 Mobile Safari/537.36";
+    const FIREFOX_ANDROID_UA = "Mozilla/5.0 (Android 15; Mobile; rv:135.0) Gecko/135.0 Firefox/135.0";
     const UA_SPOOF = {
         // Fix Google login not trusting the browser
         "https?://accounts.google.com": FIREFOX_DESKTOP_UA,
@@ -96,8 +97,8 @@ if (document)
         // Fix Sync login not completing
         "https?://accounts.firefox.com": FIREFOX_DESKTOP_UA,
         // Fix YouTube fullscreen acting weird
-        "https?://youtube.com": CHROME_ANDROID_UA,
-        "https?://m.youtube.com": CHROME_ANDROID_UA,
+        "https?://youtube.com": FIREFOX_ANDROID_UA,
+        "https?://m.youtube.com": FIREFOX_ANDROID_UA,
         // Fix Firefox extension store thinking we're on Android
         "https?://addons.mozilla.org": FIREFOX_DESKTOP_UA,
         "https?://drive.google.com": CHROME_ANDROID_UA,
