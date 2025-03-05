@@ -331,6 +331,12 @@ tab {
 	inset-inline-end: 0 !important;
 }
 
+.tab-icon-overlay {
+	&:is([soundplaying], [muted], [activemedia-blocked]) {
+		background-color: var(--tab-icon-overlay-fill) !important;
+	}
+}
+
 /* Close tab button */
 .tab-close-button {
 	list-style-image: url("../icons/window-close-symbolic.svg") !important;
