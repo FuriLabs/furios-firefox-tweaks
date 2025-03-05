@@ -32,7 +32,13 @@ if (document)
         
         // When the user touches the browser, get stuff out of the way
         browser.addEventListener('touchstart', () => {
-            gURLBar.blur();
+            // We do this on a delay because if the keyboard closes too fast
+            // the tap event will actually be displaced if the keyboard disappearing
+            // causes the contents to move. This was not an issue on squeekboard,
+            // but phosh-osk-stub seems to be a lot faster at closing the keyboard.
+            setTimeout(() => {
+                gURLBar.blur();
+            }, 100);
         }, { passive: true });
 
         const titleBar = document.getElementById('titlebar');
