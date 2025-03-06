@@ -110,8 +110,6 @@ if (document)
     const UA_SPOOF = {
         // Fix Google login not trusting the browser
         "https?://accounts.google.com": FIREFOX_DESKTOP_UA,
-        // Fix Google Search showing up as the old layout
-        "https?://(www.)?google.*/": CHROME_ANDROID_UA,
         // Fix Sync login not completing
         "https?://accounts.firefox.com": FIREFOX_DESKTOP_UA,
         // Fix YouTube fullscreen acting weird
@@ -123,6 +121,8 @@ if (document)
         // Fix Google Maps search bar not being interactive
         "https?://(www.)?google.com/maps": FIREFOX_DESKTOP_UA,
         "https?://maps.google.com": FIREFOX_DESKTOP_UA,
+        // Fix Google Search showing up as the old layout
+        "https?://(www.)?google.*/": CHROME_ANDROID_UA,
     };
 
     const requestObserver = {
