@@ -104,56 +104,100 @@
      }
 
      slotContents() {
-       if (this._hasSlotted) {
-         return;
-       }
+      if (this._hasSlotted) {
+        return;
+      }
 
-       this._hasSlotted = true;
-       //MozXULElement.insertFTLIfNeeded("toolkit/global/notification.ftl");
-       //MozXULElement.insertFTLIfNeeded("toolkit/global/popupnotification.ftl");
-       this.appendChild(this.constructor.fragment);
+      if (
+        this.hasAttribute("buttoncommand") ||
+        this.hasAttribute("secondarybuttoncommand") ||
+        this.hasAttribute("learnmoreclick")
+      ) {
+        throw new Error(
+          "The attributes 'buttoncommand', 'secondarybuttoncommand' and 'learnmoreclick' are not supported anymore use `addEventListener` instead"
+        );
+      }
 
-       this.button = this.querySelector(".popup-notification-primary-button");
-       if (
-         this.hasAttribute("buttonlabel") ||
-         this.hasAttribute("buttonaccesskey")
-       ) {
-         this.button.removeAttribute("data-l10n-id");
-       }
-       this.secondaryButton = this.querySelector(
-         ".popup-notification-secondary-button"
-       );
-       this.checkbox = this.querySelector(".popup-notification-checkbox");
-       this.closebutton = this.querySelector(".popup-notification-closebutton");
-       this.menubutton = this.querySelector(".popup-notification-dropmarker");
-       this.menupopup = this.menubutton.querySelector("menupopup");
+      this._hasSlotted = true;
+      // MozXULElement.insertFTLIfNeeded("toolkit/global/notification.ftl");
+      // MozXULElement.insertFTLIfNeeded("toolkit/global/popupnotification.ftl");
+      this.appendChild(this.constructor.fragment);
 
-       let popupnotificationfooter = this.querySelector(
-         "popupnotificationfooter"
-       );
-       if (popupnotificationfooter) {
-         this.querySelector(".popup-notification-footer-container").append(
-           popupnotificationfooter
-         );
-       }
+      this.button = this.querySelector(".popup-notification-primary-button");
+      if (
+        this.hasAttribute("buttonlabel") ||
+        this.hasAttribute("buttonaccesskey")
+      ) {
+        this.button.removeAttribute("data-l10n-id");
+      }
+      this.secondaryButton = this.querySelector(
+        ".popup-notification-secondary-button"
+      );
+      this.checkbox = this.querySelector(".popup-notification-checkbox");
+      this.closebutton = this.querySelector(".popup-notification-closebutton");
+      this.menubutton = this.querySelector(".popup-notification-dropmarker");
+      this.menupopup = this.menubutton.querySelector("menupopup");
 
-       let popupnotificationheader = this.querySelector(
-         "popupnotificationheader"
-       );
-       if (popupnotificationheader) {
-         this.querySelector(".popup-notification-header-container").append(
-           popupnotificationheader
-         );
-       }
+      let popupnotificationfooter = this.querySelector(
+        "popupnotificationfooter"
+      );
+      if (popupnotificationfooter) {
+        this.querySelector(".popup-notification-footer-container").append(
+          popupnotificationfooter
+        );
+      }
 
-       for (let popupnotificationcontent of this.querySelectorAll(
-         "popupnotificationcontent"
-       )) {
-         this.appendNotificationContent(popupnotificationcontent);
-       }
+      let popupnotificationheader = this.querySelector(
+        "popupnotificationheader"
+      );
+      if (popupnotificationheader) {
+        this.querySelector(".popup-notification-header-container").append(
+          popupnotificationheader
+        );
+      }
 
-       this.initializeAttributeInheritance();
-     }
+      for (let popupnotificationcontent of this.querySelectorAll(
+        "popupnotificationcontent"
+      )) {
+        this.appendNotificationContent(popupnotificationcontent);
+      }
+
+      this.initializeAttributeInheritance();
+
+      let customEventDelegator = (type, event) => {
+        let customEvent = new CustomEvent(type, {
+          cancelable: true,
+          bubbles: true,
+        });
+        // Give listeners the chance to prevent the default behavior.
+        if (this.dispatchEvent(customEvent)) {
+          PopupNotifications._onButtonEvent(event, type);
+        }
+      };
+
+      this.button.addEventListener("command", event =>
+        customEventDelegator("buttoncommand", event)
+      );
+      this.secondaryButton.addEventListener("command", event =>
+        customEventDelegator("secondarybuttoncommand", event)
+      );
+      this.checkbox.addEventListener("command", event => {
+        PopupNotifications._onCheckboxCommand(event);
+      });
+      this.closebutton.addEventListener("command", event => {
+        PopupNotifications._dismiss(event, true);
+      });
+      this.menubutton.addEventListener("popupshown", event => {
+        PopupNotifications._onButtonEvent(event, "dropmarkerpopupshown");
+      });
+      this.menupopup.addEventListener("command", event => {
+        PopupNotifications._onMenuCommand(event);
+      });
+      this.querySelector(".popup-notification-learnmore-link").addEventListener(
+        "click",
+        event => customEventDelegator("learnmoreclick", event)
+      );
+    }
 
      appendNotificationContent(el) {
        this.querySelector(".popup-notification-bottom-content").before(el);
