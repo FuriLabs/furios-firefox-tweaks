@@ -19,7 +19,15 @@
 
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components;
 const Services = globalThis.Services;
-Cu.import("resource://gre/modules/FileUtils.jsm");
+const { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+const IS_ESM_READY = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+
+// We need to conditionally load some modules because they haven't been ported
+// the ES module yet. This workaround can be removed when ESR128 will be EOL.
+const { FileUtils } =
+    IS_ESM_READY
+      ? ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs")
+      : Cu.import("resource://gre/modules/FileUtils.jsm");
 
 var g_ff_version;
 var g_updated = false;
