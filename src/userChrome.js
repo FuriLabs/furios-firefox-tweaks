@@ -107,6 +107,7 @@ if (document)
     const FIREFOX_DESKTOP_UA = "Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0";
     const CHROME_ANDROID_UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.137 Mobile Safari/537.36";
     const FIREFOX_ANDROID_UA = "Mozilla/5.0 (Android 15; Mobile; rv:135.0) Gecko/135.0 Firefox/135.0";
+    const CHROMEOS_UA = "Mozilla/5.0 (X11; CrOS aarch64 15329.44.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36";
     const UA_SPOOF = {
         // Fix Google login not trusting the browser
         "https?://accounts.google.com": FIREFOX_DESKTOP_UA,
@@ -123,6 +124,8 @@ if (document)
         "https?://maps.google.com": FIREFOX_DESKTOP_UA,
         // Fix Google Search showing up as the old layout
         "https?://(www.)?google.*/": CHROME_ANDROID_UA,
+        // Fix Netflix refusing to playback even if EME is working
+        "https?://(www.)?netflix.com": CHROMEOS_UA,
     };
 
     const requestObserver = {
