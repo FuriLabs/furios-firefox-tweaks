@@ -8,7 +8,7 @@
 }
 
 @media ((max-width: 700px)
-    or (not (-moz-bool-pref: "furi.landscapeDesktop"))) {
+    or (not (-moz-pref("furi.landscapeDesktop")))) {
     /* Remove various buttons left and right of the URL bar:
        - forward-button: also reachable via longpress of back button
        - home-button: not important enough

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media ((max-width: 700px)
-    or (not (-moz-bool-pref: "furi.landscapeDesktop"))) {
+    or (not (-moz-pref("furi.landscapeDesktop")))) {
     /* Even when not in private browsing mode, reserve space to the right of
      * the tab bar for the private-browsing-indicator (that mask icon). This
      * gives the tab bar a consistent width in both the regular and the private
