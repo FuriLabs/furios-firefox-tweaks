@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: MPL-2.0 */
 
 @media ((max-width: 700px)
-        or (not (-moz-bool-pref: "furi.landscapeDesktop")))
+        or (not (-moz-pref("furi.landscapeDesktop"))))
 {
 
     panel
@@ -62,8 +62,8 @@
  }
 
 @media (((min-width: 701px)
-    and (-moz-bool-pref: "furi.landscapeDesktop"))
-    or (-moz-bool-pref: "furi.topTabs"))
+    and (-moz-pref("furi.landscapeDesktop")))
+    or (-moz-pref("furi.topTabs")))
 {
     panel, box.panel-viewcontainer > box.panel-viewstack {
         align-content: flex-start;
@@ -96,7 +96,7 @@
 }
 
  @media ((min-width: 701px)
-     or (-moz-bool-pref: "furi.appMenuDualPortrait"))
+     or (-moz-pref("furi.appMenuDualPortrait")))
 {
     #appMenu-mainView > .panel-subview-body
     {
