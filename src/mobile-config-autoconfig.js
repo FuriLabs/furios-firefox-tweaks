@@ -363,7 +363,7 @@ function css_files_update() {
 function set_default_prefs() {
     log("Setting default preferences");
 
-    var user_agent = "Mozilla/5.0 (Android 15; Mobile; rv:134.0) Gecko/134.0 Firefox/134.0";
+    var user_agent = "Mozilla/5.0 (Android 15; Mobile; rv:139.0) Gecko/139.0 Firefox/139.0";
     defaultPref('general.useragent.override', user_agent);
 
     // Disable PiP controls - they don't work here and are just annoying
