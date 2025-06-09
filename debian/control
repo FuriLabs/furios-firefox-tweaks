@@ -13,7 +13,7 @@ Package: furios-firefox-tweaks
 Architecture: all
 Depends:
  ${misc:Depends},
- firefox (>= 135~),
+ firefox (>= 139~),
  dconf-cli
 Description: Default mobile-friendly FuriOS configuration for Firefox
  This package provides a set of configuration files aimed at making Firefox
