@@ -366,12 +366,6 @@ function set_default_prefs() {
     var user_agent = "Mozilla/5.0 (Android 15; Mobile; rv:134.0) Gecko/134.0 Firefox/134.0";
     defaultPref('general.useragent.override', user_agent);
 
-    // Disable "Firefox View" feature by default. It's a pinned tab that allows
-    // to "pick up" tabs from other devices after registering an account, and
-    // shows recently closed tabs. The always pinned tab takes up screen estate
-    // and it's slightly annoying if you do not want to register an account.
-    defaultPref('browser.tabs.firefox-view', false);
-
     // Disable PiP controls - they don't work here and are just annoying
     defaultPref('media.videocontrols.picture-in-picture.enabled', false);
     defaultPref('media.videocontrols.picture-in-picture.keyboard-controls.enabled', false);
