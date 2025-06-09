@@ -21,7 +21,7 @@
      * website and to make the "all tabs" button show up.
      * Hide the would be divider to the Firefox View button */
     #tabbrowser-tabs {
-        --tab-min-width: calc(100vw - 116px) !important;
+        --tab-min-width-pref: calc(100vw - 116px) !important;
         border-inline-start: 0 !important;
     }
 
