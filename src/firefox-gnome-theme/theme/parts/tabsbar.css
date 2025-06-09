@@ -426,7 +426,7 @@ tab {
 .tabbrowser-tab:not([style^="max-width"]):not([pinned]),
 .tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
 	max-width: 100% !important;
-	--tab-min-width: 131px !important;
+	--tab-min-width-pref: 131px !important;
 }
 .tabbrowser-tab:not([style^="max-width"]):not([pinned]):not([fadein]),
 .tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]):not([fadein]) {
@@ -578,7 +578,7 @@ tab {
 	.tabbrowser-tab:not([style^="max-width"]):not([pinned]),
 	.tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
 		max-width: 225px !important;
-		--tab-min-width: inherit !important;
+		--tab-min-width-pref: inherit !important;
 	}
 }
 
@@ -708,7 +708,7 @@ html:not([lwtheme]) #titlebar {
 			#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"]:not([pinned]):not([style^="max-width"]),
 			#tabbrowser-tabs tab[first-visible-tab="true"][last-visible-tab="true"][style^="max-width: 100px !important;"]:not([pinned]) {
 				max-width: 100% !important;
-				--tab-min-width: 131px !important;
+				--tab-min-width-pref: 131px !important;
 			}
 		}
 	}
