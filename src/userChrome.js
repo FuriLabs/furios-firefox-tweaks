@@ -104,9 +104,9 @@ if (document)
 // Kind of like the webcompat stuff, but works on privileged pages
 // Used to fix things like Sync login, extension store, YouTube fullscreen, Google login, etc
 {
-    const FIREFOX_DESKTOP_UA = "Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0";
+    const FIREFOX_DESKTOP_UA = "Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/139.0";
     const CHROME_ANDROID_UA = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.6943.137 Mobile Safari/537.36";
-    const FIREFOX_ANDROID_UA = "Mozilla/5.0 (Android 15; Mobile; rv:135.0) Gecko/135.0 Firefox/135.0";
+    const FIREFOX_ANDROID_UA = "Mozilla/5.0 (Android 15; Mobile; rv:135.0) Gecko/138.0 Firefox/139.0";
     const CHROMEOS_UA = "Mozilla/5.0 (X11; CrOS aarch64 15329.44.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36";
     const UA_SPOOF = {
         // Fix Google login not trusting the browser
