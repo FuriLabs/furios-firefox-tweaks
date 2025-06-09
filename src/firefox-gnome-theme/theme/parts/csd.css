@@ -159,7 +159,7 @@
 }
 
 /* OPTIONAL: Allow draging the window from headerbar buttons */
-@media (-moz-bool-pref: "gnomeTheme.dragWindowHeaderbarButtons") {
+@media (-moz-pref("gnomeTheme.dragWindowHeaderbarButtons")) {
 	:root[tabsintitlebar] #nav-bar *,
 	:root[tabsintitlebar] #titlebar .titlebar-button {
 		-moz-window-dragging: drag;

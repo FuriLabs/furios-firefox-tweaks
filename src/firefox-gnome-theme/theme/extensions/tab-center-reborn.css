@@ -1,4 +1,4 @@
-@media (-moz-bool-pref: "gnomeTheme.extensions.tabCenterReborn") {
+@media (-moz-pref("gnomeTheme.extensions.tabCenterReborn")) {
     :root {
         --delay: 0s;
         --transition-time: 0.2s;
@@ -156,7 +156,7 @@
     }
 }
 
-@media (-moz-bool-pref: "gnomeTheme.extensions.tabCenterReborn.alwaysOpen") {
+@media (-moz-pref("gnomeTheme.extensions.tabCenterReborn.alwaysOpen")) {
     #sidebar-box[sidebarcommand*="tabcenter"] #sidebar,
     #sidebar-box[sidebarcommand*="tabcenter"] {
         min-width: 10vw !important;
@@ -186,7 +186,7 @@
     }
 }
 
-@media (-moz-bool-pref: "gnomeTheme.extensions.tabCenterReborn.animationDisabled") {
+@media (-moz-pref("gnomeTheme.extensions.tabCenterReborn.animationDisabled")) {
     #sidebar-box[sidebarcommand*="tabcenter"]:hover #sidebar,
     #sidebar-box[sidebarcommand*="tabcenter"]:hover {
         transition: none !important;
