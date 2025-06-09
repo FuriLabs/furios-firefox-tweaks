@@ -32,7 +32,7 @@ html:not([lwtheme]) #nav-bar {
 }
 
 /* Overlay headerbar on fullscreen */
-@media (-moz-bool-pref: "browser.fullscreen.autohide") {
+@media (-moz-pref("browser.fullscreen.autohide")) {
 	#navigator-toolbox[inFullscreen] {
 		position: fixed !important;
 		transition: margin 300ms ease-in-out 0s !important;
