@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 USERNAME="furios"
 
 # this should not run during builds
@@ -12,7 +10,7 @@ if [ "$1" = "configure" ]; then
     # for those files to upgrade
     find /usr/share/furios-firefox-tweaks -type f -exec touch {} \;
 
-    getent passwd $USERNAME > /dev/null 2&>1
+    getent passwd $USERNAME > /dev/null
     if [ $? -eq 0 ]; then
         su -l $USERNAME -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
     fi
