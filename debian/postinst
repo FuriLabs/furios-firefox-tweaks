@@ -2,6 +2,8 @@
 
 set -e
 
+USERNAME="furios"
+
 # this should not run during builds
 [ -f "/.dockerenv" ] && exit 0
 
@@ -10,8 +12,10 @@ if [ "$1" = "configure" ]; then
     # for those files to upgrade
     find /usr/share/furios-firefox-tweaks -type f -exec touch {} \;
 
-    getent passwd $1 > /dev/null 2&>1
-    [ $? -eq 0 ] && su -l furios -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
+    getent passwd $USERNAME > /dev/null 2&>1
+    if [ $? -eq 0 ]; then
+        su -l $USERNAME -c "/bin/bash /usr/share/furios-firefox-tweaks/migrate.sh"
+    fi
 fi
 
 [ -f "/etc/profile.d/99-firefox-disable-glxtest.sh" ] && rm -f /etc/profile.d/99-firefox-disable-glxtest.sh
