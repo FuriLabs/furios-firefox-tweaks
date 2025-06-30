@@ -253,9 +253,6 @@ pref('network.fetchpriority.enabled', true);
 pref('network.http.speculative-parallel-limit', 0);
 pref('page_load.deprioritization_period', 1);
 
-// Reader mode can wait
-pref('reader.parse-on-load.enabled', false);
-
 // Use new bounding box calculation. Need to benchmark this.
 pref('svg.new-getBBox.enabled', true);
 
