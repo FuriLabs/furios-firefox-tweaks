@@ -253,9 +253,6 @@ pref('network.fetchpriority.enabled', true);
 pref('network.http.speculative-parallel-limit', 0);
 pref('page_load.deprioritization_period', 1);
 
-// Reader mode can wait
-pref('reader.parse-on-load.enabled', false);
-
 // Use new bounding box calculation. Need to benchmark this.
 pref('svg.new-getBBox.enabled', true);
 
@@ -269,3 +266,6 @@ pref('ui.touch_activation.delay_ms', 15);
 // :active state before it is cleared by the mouse sequences
 // fired after a touchstart/touchend.
 pref('ui.touch_activation.duration_ms', 1);
+
+// Disable tab overview popup
+pref('browser.tabs.hoverPreview.enabled', true);
