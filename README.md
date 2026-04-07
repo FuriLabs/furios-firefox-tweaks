@@ -1,3 +1,15 @@
+# Farewell
+
+This project began as an experiment to merge the Firefox GNOME theme into mobile-config-firefox and then improve usability and performance.
+
+Over the past two years, nearly all “hard to upstream” patches have been adopted upstream, which significantly reduced the effort required to rebase onto newer versions of MCF. At the same time, interest in the GNOME theme and consequently the work of rebasing and resolving conflicts between the two projects has gradually declined. The remaining meaningful patches are now relatively easy to apply on top of MCF, so it feels like the right time to bring this project to a close.
+
+A new fork, with the goal of rebasing every couple of months, is now available at: https://github.com/FuriLabs/mobile-config-firefox-furios
+
+The plan going forward is to maintain it like our other upstream soft-forks (such as gnome-control-center or phosh) by keeping upstream in the `upstream` branch (and merge new tags), and rebasing our changes onto a clean branch such as `forky` (or whichever branch corresponds to the current suite), business as usual like all other soft forks we rebase every release.
+
+Note: There is always the possibility of unarchiving this project in the future for further experimentation or production use. For now, however, we will be switching back to MCF and performing periodic rebases every few months.
+
 # furios-firefox-tweaks
 
 Mobile and privacy friendly configuration for current standard and extended
